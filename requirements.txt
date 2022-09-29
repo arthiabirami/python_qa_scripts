@@ -1,0 +1,180 @@
+PYTHONGUIDE
+-----------
+https://www.tutorialspoint.com/object_oriented_python/object_oriented_python_tutorial.pdf
+https://unglueit-files.s3.amazonaws.com/ebf/617027d14a3046998f54b31503ab7bca.pdf
+
+pip3 install selenium
+
+LINK_TEXT 
+opens the sublink in the webpage
+has to give fulltext of the title in <a tag(Register)
+
+PARTIAL_LINK_TEXT
+we can give partialtext(reg)
+
+slides=driver.find_elements(By.CLASS_NAME,"class value")
+print(len(slides))
+This will give you the number of slideshow (note:findelement is in plurel)
+inspecting slide which has same class name with diffrent id
+
+FINDING NO OF LINKS IN THE WEBPAGE
+links=driver.find_elements(By.tag_name,"a")
+print(len(links))
+
+
+CSS_SELECTOR
+1)tag id            syn: tagname#value of id
+2)tag class         syn: tagname.value of class
+3)tag attribute     syn: tagname[attributr = value]
+4)tag class attribute syn: tagname.value of class[attribute=value]
+
+XPATH IS DEFINED AS THW XML PATH
+---------------------------------
+1)it is a syntax or a language for finding an element on
+the webpage using xml path expression 
+2)XPATH is used t0 find the location of any elment oa a  webpage using HTML DOM(document object model)structure
+3)XPATH can be used to navigate through elements and attributes in DOM
+4)XPATH is an address of the element
+
+TYPES OF XPATH
+---------------
+1)Absolute/full XPATH
+    starts from root html
+    starts with "/"
+      ex:/html/body/div/div[1]/header/div[3]/div/div/div[3]/div/a
+2)Relative/partial XPATH
+    Directly jump to element on DOM
+    starts with "//"
+      ex://*[@id="header"]/div[3]/div/div/div[3]/div/a
+
+    syntex of writing relative xpath:
+       //tagname[@attribute='value']
+
+XPATH options
+--------------
+and
+or
+contains() --- //tagname[contains(@attribute,'any word or letters in value')]
+starts-with() ---//tagname[start_with(@attribute,'any word or letters starts in value')]
+text() ------//tagname[text(@attribute,'text in element')]
+
+
+COMMANDS
+--------
+1)application commands
+2)conditionl commands
+3)browser commands
+4)navigational commands
+5)wait commands
+
+
+APPLICATION COMMANDS
+---------------------
+get() - opening the application url
+title - caputure the title of current webpage
+current_url - capture current url
+page_source -to capture source code of the page
+
+CONDITIONLA COMMANDS
+-------------------
+acsess through web elements not with driver instance(not eith driver.)
+is_displayed
+is_enabled
+is_selected
+
+BROWSER COMMANDS
+-----------------
+close()
+quit()
+
+NAVIGATIONAL COMMANDS
+---------------------
+back()
+forward()
+refresh()
+ 
+text vs get_attribute()
+-----------------------
+text - only returns the inner value of the web element(mostly for link /a)
+in html it will be like <a href="/en/get-started" xpath="1">Get started</a>  where  get started is a text
+
+get_attribute()-retrun value of any element attributr ex get_attributr('value')
+get_attributr('type')or
+get_attributr('class')
+
+wait commands
+-------------
+1)implicitly_wait
+2)explicitly_waitS
+
+----refer coressponding file
+checkboxes
+links/broken link
+dropdown box
+
+
+HANDLING ALERT WINDOW
+-------------------
+it is not the webelement
+myalert=diver.switch_to.alert
+myalert.text
+myalert.accept()
+myalert.dismiss()
+
+Authentication popup
+---------------------
+syntex:
+ http://username:password@test.com
+
+FRAMES/Iframes
+--------------
+switch_to_frame() -- selenium 3 syntax
+
+selenium 4 
+
+switch_to.frame(name of the frame)
+switch_to.frame(id of the frame)
+switch_to.frame(web element)
+switch_to.frame(0) --index
+
+switch_to.default_content() -- this will switch to main frame
+
+BROWSER WINDOWS
+---------------
+switch_to.window(window id)
+
+
+current_window_handle   -- return window ID of single browser window
+window_handles     ----return window ID's of wultople windows
+
+
+NOTIFICATION POPUPS
+-------------------
+which is not produced by the web application .this will produced by the webdriver
+
+TO AVOID THIS
+-------------
+add
+ops=webdriver.ChromeOptions()
+ops.add_argument("--disable-notifications")
+
+driver=webdriver.Chrome(sevice=serv_obj,options=ops)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

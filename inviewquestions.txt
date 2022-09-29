@@ -1,0 +1,32 @@
+1)which XPATH is prefered? why?
+    relative XPATH becoz
+    1)if developer introduced new element then absolute XPATH will be broken
+    2)if developer changed the location then XPATH will not work
+2)diffrence bw close and quit
+	close -- will close single browser command (driver.get)
+	quit -- will close multiple browser window --killing the entire process of chrome driver 
+3)find_element vs find_elements
+find_element-returns single webelement
+------------
+	1)locator matching with single webelement
+	2)locator matching with multiple webelement
+	3)element not available then throw 'no such element exception'if the path is incorrect
+
+find_elements-returns multiple webelement
+-------------
+	1)locator matching with single webelement as a list ex:[1,2,3]
+	2)locator matching with multiple webelementas a list
+	3)if element not available it does not throw 'no such element exception'it cosider as a emptylist
+
+wait commands -to overcome the synchronization problem
+-------------
+time.sleep(sec)-from the python 
+	The disadvantage is
+    1)performance of the script become very poor 
+ 	2)if the element is not avaliable within the time mentioned,there is a chance of getting exception.
+
+1)implicitly_wait (10)
+----------------------
+--it is recomended to write in the begining of the script(under the chrome driver) which will perform all over the script 
+--This kill byitself if the element found before the time mentioned 
+

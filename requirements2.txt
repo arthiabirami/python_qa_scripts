@@ -1,0 +1,66 @@
+WEBTABLE
+--------
+
+DATE PICKER
+-----------
+1)standard
+2)non-standard(customized)
+
+MOUSE OPERATIONS
+----------------
+ActionChains --class in selenium
+
+act = ActionChains (driver) --should be create object 
+
+1)mouse hover   - act.move_to_element(element).perform() 
+2)right click   - act.context_click(element).perform()
+3)double click  - act.double_click(element).perform()
+4)drag and drop - act.drag_and_drop(source, target).perform()
+
+
+slider element
+..............
+
+to know the location of the element and identify slider increasing in x axis or y axis
+if it increasing x axis increase x value and y=0 or vice versa
+print(element.location)  which gives for ex{'x':59, 'y':252}
+
+act.drag_and_drop_by_offset(element,x++,y++).perform()
+
+
+SCROLLING DOWN
+--------------
+ 	This operation can done by using java script module 
+
+1)scroll down page by pixel
+...........................
+driver.execute_script("window.scrollBy(0,3000)","")   --- sytex from java
+value=driver.execute_script("return window.pageYoffset;") --gives the location value of scroll bar
+print("number of pixel moved:",value)
+
+2)scroll down page till the element is visible
+...............................................
+find the element 
+driver.execute_script("argument[0].scrollIntoView();",element)
+
+3)scroll down page till end
+............................
+driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
+
+
+
+
+
+Data Driven testing
+--------------------
+openpyxl -- we can work with xl(.xlxs) file
+
+
+
+
+
+
+
+
+
+
